@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import { Histogram } from "./Histogram";
 
 const App: React.FC = () => {
   return (
-    <div>
-          Learn React
-    </div>
+    <svg width={"2000"} height={"500"}>
+      <Histogram />
+    </svg>
   );
 };
 
