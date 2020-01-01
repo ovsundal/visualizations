@@ -1,9 +1,9 @@
 import React from "react";
-import { Histogram } from "./Histogram";
+import { Histogram } from "./histogram/Histogram";
 
 const App: React.FC = () => {
   return (
-    <svg width={"2000"} height={"500"}>
+    <svg width={"2000"} height={"1500"}>
       <Histogram />
     </svg>
   );

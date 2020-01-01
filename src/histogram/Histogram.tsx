@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useMemo } from "react";
+import {useEffect, useMemo, useRef} from "react";
 import * as d3 from "d3";
+import {HistogramAxis} from "./HistogramAxis";
 
 interface IHistogramProps {}
 
@@ -29,17 +30,18 @@ const testData = [
 ];
 
 export const Histogram: React.FC = (props: IHistogramProps) => {
-  const [xScale, yScale] = useSetScales();
 
-  console.log(xScale);
-  console.log(yScale);
+
+
 
   return (
+
     <g>
-      {testData.map(bar => (
-        <HistogramBar width={200} height={100} />
-      ))}
-      <rect width={200} height={100} />
+      <HistogramAxis />
+      {/*{testData.map(bar => (*/}
+      {/*  <HistogramBar width={200} height={100} />*/}
+      {/*))}*/}
+      {/*<rect width={200} height={100} />*/}
     </g>
   );
 };
