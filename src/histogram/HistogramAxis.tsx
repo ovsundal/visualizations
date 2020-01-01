@@ -6,17 +6,43 @@ import { useEffect } from "react";
 interface IHistogramAxisProps {}
 
 export const HistogramAxis: React.FC = (props: IHistogramAxisProps) => {
-  const anchorRef = useRef(null);
+  const xAxisRef = useRef(null);
+  const yAxisRef = useRef(null);
   const yAxis = useGetYAxisScale();
+  const xAxis = useGetXAxisScale();
 
   useEffect(() => {
     // @ts-ignore
-      d3.select(anchorRef.current).call(yAxis);
+    d3.select(xAxisRef.current).call(xAxis);
+    // @ts-ignore
+    d3.select(yAxisRef.current).call(yAxis);
   }, []);
 
-  return <g ref={anchorRef} transform={`translate(150, 100)`} />;
+  return (
+    <>
+      <g ref={xAxisRef} transform={`translate(150, 400)`} />
+      <g ref={yAxisRef} transform={`translate(150, 100)`} />
+    </>
+  );
 };
 
+function useGetXAxisScale() {
+  const xAxis = useMemo(() => {
+    const xAxisScale = d3
+      .scaleLinear()
+      .domain([0, 8])
+      .range([0, 600]);
+
+    const xAxisConfig = d3
+      .axisBottom(xAxisScale)
+      .ticks(0)
+      .tickSize(0);
+
+    return xAxisConfig;
+  }, []);
+
+  return xAxis;
+}
 function useGetYAxisScale() {
   const yAxis = useMemo(() => {
     const yAxisScale = d3
