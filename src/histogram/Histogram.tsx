@@ -1,10 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
-import {useEffect, useMemo, useRef} from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
-import {HistogramAxis} from "./HistogramAxis";
+import { HistogramAxis } from "./HistogramAxis";
+import { HistogramBar } from "./HistogramBar";
 
-interface IHistogramProps {}
+interface IHistogramProps {
+  bins: number
+}
 
 const testData = [
   {
@@ -29,52 +32,13 @@ const testData = [
   }
 ];
 
-export const Histogram: React.FC = (props: IHistogramProps) => {
-
-
-
-
+export const Histogram: React.FC<IHistogramProps> = ({bins} ) => {
   return (
-
     <g>
       <HistogramAxis />
-      {/*{testData.map(bar => (*/}
-      {/*  <HistogramBar width={200} height={100} />*/}
-      {/*))}*/}
-      {/*<rect width={200} height={100} />*/}
+      <HistogramBar
+        bins={bins}
+      />
     </g>
   );
 };
-
-function useSetScales() {
-  const xScale = useMemo(
-    () =>
-      d3
-        .scaleLinear()
-        .domain([0, 1000])
-        .range([0, 500]),
-    []
-  );
-
-  const yScale = useMemo(
-    () =>
-      d3
-        .scaleLinear()
-        .domain([0, 700])
-        .range([600]),
-    []
-  );
-
-  return [xScale, yScale];
-}
-
-function makeBar({ xScale, yScale }: any) {
-  const props = {
-    width: xScale,
-    height: yScale
-  };
-
-  return <HistogramBar {...props} />;
-}
-
-const HistogramBar = styled.rect``;

@@ -4,7 +4,9 @@ import { Histogram } from "./histogram/Histogram";
 const App: React.FC = () => {
   return (
     <svg width={"2000"} height={"1500"}>
-      <Histogram />
+      <Histogram
+          bins={5}
+      />
     </svg>
   );
 };
