@@ -38,6 +38,7 @@ export const Histogram: React.FC<IHistogramProps> = ({bins} ) => {
       <HistogramAxis />
       <HistogramBar
         bins={bins}
+        data={testData}
       />
     </g>
   );
