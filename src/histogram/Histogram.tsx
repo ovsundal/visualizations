@@ -21,8 +21,6 @@ export const Histogram: React.FC<IHistogramProps> = ({
   const yAxisRef = useRef(null);
 
   const bars = useGetHistogramBars(bins, data);
-  console.log(bars);
-
   const labels = data.map(item => item.label);
   const counts = bars.map(d => d.length);
   const xAxis = useGetXAxisScale(counts, axisMargin);
@@ -41,24 +39,28 @@ export const Histogram: React.FC<IHistogramProps> = ({
     // @ts-ignore
     d3.select(yAxisRef.current).call(yAxisConfig);
   }, [xAxis, yAxis]);
-console.log(bars);
+
+  // TODO: labels ikke påført korrekt bar
+  // TODO: y-skala gal vei
 
   return (
     <g>
       <g ref={xAxisRef} transform={`translate(150, ${height + 100})`} />
       <g ref={yAxisRef} transform={`translate(150, 100)`} />
-      {bars.map((bar, index) => (
-        <HistogramBar
-
-  // @ts-ignore
-            height={yAxis(bar)}
-          label={labels[index]}
-          y={height + 100}
-          x={axisMargin * index}
-          key={index}
-          bar={bar}
-        />
-      ))}
+      {bars
+        .filter(item => item[0] != null)
+        .map((bar, index) => {
+          return (
+            <HistogramBar
+              height={yAxis(bar[0])}
+              label={labels[index]}
+              y={height + 100}
+              x={axisMargin * index}
+              key={index}
+              bar={bar}
+            />
+          );
+        })}
     </g>
   );
 };
@@ -91,10 +93,13 @@ function useGetXAxisScale(counts: number[], axisMargin: number) {
 }
 
 function useGetYAxisScale(bars: d3.Bin<number, number>[], height: number) {
+  console.log(bars);
+  console.log(d3.max(bars, d => d[0]));
+
   return useMemo(() => {
     return d3
       .scaleLinear()
-      .domain([0, d3.max(bars, d => d.x1) || 0])
-      .range([height, 0]);
+      .domain([0, d3.max(bars, d => d[0]) || 0])
+      .range([0, height]);
   }, [bars]);
 }
