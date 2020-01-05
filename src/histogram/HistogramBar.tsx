@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useMemo } from "react";
 import * as d3 from "d3";
+import styled from "styled-components";
 
 interface IHistogramBarProps {
   bar: d3.Bin<number, number>;
@@ -19,8 +20,12 @@ export const HistogramBar: React.FC<IHistogramBarProps> = ({
     <g transform={translate}>
       {
         // @ts-ignore
-        <rect height={yScale(bar)} transform={`rotate(180)`} width={45} />
+        <BarWrapper fill={'rgb(61,61,255)'} height={yScale(bar)} transform={`rotate(180)`} width={45} />
       }
     </g>
   );
 };
+
+const BarWrapper = styled.rect`
+  transform: 'translate(${220 }, 585)'
+`
