@@ -7,14 +7,16 @@ interface IHistogramBarProps {
   bar: d3.Bin<number, number>;
   yScale: d3.ScaleLinear<number, number>;
   x: number;
-  y: number
+  y: number;
+  label: string;
 }
 
 export const HistogramBar: React.FC<IHistogramBarProps> = ({
   bar,
   yScale,
   x,
-    y
+    y,
+    label
 }) => {
   const translate = `translate(${220 + x}, ${y})`; // here
 
@@ -24,6 +26,7 @@ export const HistogramBar: React.FC<IHistogramBarProps> = ({
         // @ts-ignore
         <rect fill={'rgb(61,61,255)'} height={yScale(bar)} transform={`rotate(180)`} width={45} />
       }
+      <text transform={`translate(-25, 20)`}>{label}</text>
     </g>
   );
 };

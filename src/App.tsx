@@ -7,7 +7,7 @@ const App: React.FC = () => {
       <Histogram
           bins={5}
           data={testData}
-          height={485}
+          height={400}
       />
     </svg>
   );
@@ -15,23 +15,23 @@ const App: React.FC = () => {
 
 const testData = [
     {
-        name: "A",
+        label: "A",
         value: 1
     },
     {
-        name: "B",
+        label: "B",
         value: 5
     },
     {
-        name: "C",
+        label: "C",
         value: 2
     },
     {
-        name: "D",
+        label: "D",
         value: 4
     },
     {
-        name: "E",
+        label: "E",
         value: 7
     }
 ];
