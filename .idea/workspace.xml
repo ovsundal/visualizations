@@ -1,11 +1,292 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b77fb8a8-a020-4114-bf5e-2867b6b9398c" name="Default Changelist" comment="add prettier library">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/histogram/Histogram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/histogram/Histogram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/histogram/HistogramBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/histogram/HistogramBar.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="ProjectId" id="1UtlpVXXOfZQssGj5hXIhIumK8Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Ove\WebstormProjects\visualizations\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Users\Ove\WebstormProjects\visualizations\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ove\WebstormProjects\visualizations\src\histogram" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.debug">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="debug" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.debug" />
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="npm.npm start" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b77fb8a8-a020-4114-bf5e-2867b6b9398c" name="Default Changelist" comment="" />
+      <created>1576183954471</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576183954471</updated>
+      <workItem from="1576183956098" duration="1228000" />
+      <workItem from="1577791397550" duration="1574000" />
+      <workItem from="1577800708982" duration="4274000" />
+      <workItem from="1577835154616" duration="507000" />
+      <workItem from="1577835804594" duration="4812000" />
+      <workItem from="1578081416493" duration="602000" />
+      <workItem from="1578085202617" duration="6996000" />
+      <workItem from="1578223183868" duration="9170000" />
+    </task>
+    <task id="LOCAL-00001" summary="remove boilerplate and add styled components">
+      <created>1576184581383</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576184581383</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add prettier library">
+      <created>1577801472525</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577801472525</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add histogram component">
+      <created>1577801546360</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577801546360</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add d3 library">
+      <created>1577832632196</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577832632196</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add histogram test data">
+      <created>1577832679653</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577832679653</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add histogram y-axis">
+      <created>1577839061947</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1577839061947</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add x-axis">
+      <created>1577839966516</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1577839966516</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add bars">
+      <created>1578227275392</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1578227275392</updated>
+    </task>
+    <task id="LOCAL-00009" summary="remove unused component">
+      <created>1578227293168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578227293168</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor: code cleanup">
+      <created>1578251488349</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1578251488349</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="remove boilerplate and add styled components" />
+    <MESSAGE value="add prettier library" />
+    <MESSAGE value="add histogram component" />
+    <MESSAGE value="add d3 library" />
+    <MESSAGE value="add histogram test data" />
+    <MESSAGE value="add histogram y-axis" />
+    <MESSAGE value="add x-axis" />
+    <MESSAGE value="add bars" />
+    <MESSAGE value="remove unused component" />
+    <MESSAGE value="refactor: code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: code cleanup" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Web_Browsers" timestamp="1578249097053">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Web_Browsers/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249097053" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578249114168">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249114168" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576184218738">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576184218738" />
+    <state x="71" y="15" width="1835" height="911" key="CommitChangelistDialog2" timestamp="1578251487677">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="71" y="15" width="1835" height="911" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578251487677" />
+    <state x="740" y="260" key="FileChooserDialogImpl" timestamp="1576184246054">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="260" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576184246054" />
+    <state x="829" y="412" key="Github.ShareDialog" timestamp="1576184264744">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="829" y="412" key="Github.ShareDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576184264744" />
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1578249119408">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249119408" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1578249119407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249119407" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1578249119407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249119407" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1578249119407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249119407" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1578249143341">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249143341" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1578249143341">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249143341" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1578249143341">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249143341" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1578249143341">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578249143341" />
+    <state x="672" y="236" key="MultipleFileMergeDialog" timestamp="1578082761731">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="236" key="MultipleFileMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578082761731" />
+    <state x="758" y="231" key="RollbackChangesDialog" timestamp="1578227245642">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="758" y="231" key="RollbackChangesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578227245642" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1577791430909">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1577791430909" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1578251490817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578251490817" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578082740670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578082740670" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1577791607596">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1577791607596" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/histogram/HistogramBar.tsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

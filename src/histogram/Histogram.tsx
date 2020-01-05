@@ -7,12 +7,14 @@ interface IHistogramProps {
   bins: number;
   data: any[];
   axisMargin?: number; // horizontal spacing between bars
+  height: number;
 }
 
 export const Histogram: React.FC<IHistogramProps> = ({
   bins,
   data,
-  axisMargin = 75
+  axisMargin = 75,
+  height
 }) => {
   // mutable refs to hook the axis on
   const xAxisRef = useRef(null);
@@ -21,7 +23,7 @@ export const Histogram: React.FC<IHistogramProps> = ({
   const bars = useGetHistogramBars(bins, data);
   const counts = bars.map(d => d.length);
   const xAxis = useGetXAxisScale(counts, axisMargin);
-  const yAxis = useGetYAxisScale(bars);
+  const yAxis = useGetYAxisScale(bars, height);
 
   // attach axis to refs
   useEffect(() => {
@@ -80,9 +82,7 @@ function useGetXAxisScale(counts: number[], axisMargin: number) {
   }, [counts, axisMargin, axisWidth]);
 }
 
-function useGetYAxisScale(bars: d3.Bin<number, number>[]) {
-  const height = 485;
-
+function useGetYAxisScale(bars: d3.Bin<number, number>[], height: number) {
   return useMemo(() => {
     return d3
       .scaleLinear()

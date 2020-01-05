@@ -11,7 +11,7 @@ interface IHistogramBarProps {
 export const HistogramBar: React.FC<IHistogramBarProps> = ({
   bar,
   yScale,
-  x
+  x,
 }) => {
   const translate = `translate(${220 + x}, 585)`;
 
@@ -19,7 +19,7 @@ export const HistogramBar: React.FC<IHistogramBarProps> = ({
     <g transform={translate}>
       {
         // @ts-ignore
-        <rect transform={`rotate(180)`} width={45} height={yScale(bar)} />
+        <rect height={yScale(bar)} transform={`rotate(180)`} width={45} />
       }
     </g>
   );
