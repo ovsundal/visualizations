@@ -5,42 +5,50 @@ import * as d3 from "d3";
 interface IHistogramBarProps {
   bins: number;
   data: { value: number; name: string }[];
+  bar: any;
+  yScale: any;
+  x: number;
 }
 
-export const HistogramBar: React.FC<IHistogramBarProps> = ({ bins, data }) => {
-  const bars = useGetBarProps(bins, data);
+export const HistogramBar: React.FC<IHistogramBarProps> = ({
+  bins,
+  data,
+  bar,
+  yScale,
+  x
+}) => {
+  // const bars = useGetBarProps(bins, data);
 
-  console.log(bars);
-// TODO: fortsett å integrere bars inn - den skal ikke ha nøstet array
+  console.log(yScale(bar.x0));
+  console.log(bar);
+
+  const translate = `translate(${250 + x}, 600)`;
+
   return (
-    <g>
-      {data.map(({ value, name }, index) => (
-        <React.Fragment key={name}>
-          {bars.map(() => makeBar(name, value))}
-        </React.Fragment>
-      ))}
+    <g transform={translate}>
+      <rect transform={`rotate(180)`} width={75} height={yScale(bar)} />
     </g>
   );
 };
 
-function useGetBarProps(bins: number, data: any) {
-  return useMemo(
-    () =>
-      d3
-        .histogram()
-        .thresholds(bins)
-
-        // @ts-ignore
-        .value([1, 2, 3])(data),
-    [bins]
-  );
-}
-function makeBar(name: string, value: number) {
-  return (
-    <rect
-      width={60}
-      height={value * 10}
-
-    />
-  );
-}
+// function useGetBarProps(bins: number, data: any) {
+//   return useMemo(
+//     () =>
+//       d3
+//         .histogram()
+//         .thresholds(bins)
+//
+//         // @ts-ignore
+//         .value([1, 2, 3])(data),
+//     [bins]
+//   );
+// }
+// function makeBar(name: string, value: number) {
+//   return (
+//     <rect
+//       width={60}
+//       height={value * 10}
+//
+//     />
+//   );
+// }
