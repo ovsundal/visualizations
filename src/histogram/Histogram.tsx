@@ -21,6 +21,8 @@ export const Histogram: React.FC<IHistogramProps> = ({
   const yAxisRef = useRef(null);
 
   const bars = useGetHistogramBars(bins, data);
+  console.log(bars);
+
   const labels = data.map(item => item.label);
   const counts = bars.map(d => d.length);
   const xAxis = useGetXAxisScale(counts, axisMargin);
@@ -39,6 +41,7 @@ export const Histogram: React.FC<IHistogramProps> = ({
     // @ts-ignore
     d3.select(yAxisRef.current).call(yAxisConfig);
   }, [xAxis, yAxis]);
+console.log(bars);
 
   return (
     <g>
@@ -46,12 +49,14 @@ export const Histogram: React.FC<IHistogramProps> = ({
       <g ref={yAxisRef} transform={`translate(150, 100)`} />
       {bars.map((bar, index) => (
         <HistogramBar
+
+  // @ts-ignore
+            height={yAxis(bar)}
           label={labels[index]}
           y={height + 100}
           x={axisMargin * index}
           key={index}
           bar={bar}
-          yScale={yAxis}
         />
       ))}
     </g>

@@ -5,7 +5,7 @@ const App: React.FC = () => {
   return (
     <svg width={"2000"} height={"1500"}>
       <Histogram
-          bins={5}
+          bins={5} // amount of value ranges
           data={testData}
           height={400}
       />

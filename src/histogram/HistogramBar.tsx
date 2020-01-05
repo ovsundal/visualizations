@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 interface IHistogramBarProps {
   bar: d3.Bin<number, number>;
-  yScale: d3.ScaleLinear<number, number>;
+  height: number;
   x: number;
   y: number;
   label: string;
@@ -13,19 +13,21 @@ interface IHistogramBarProps {
 
 export const HistogramBar: React.FC<IHistogramBarProps> = ({
   bar,
-  yScale,
   x,
-    y,
-    label
+  y,
+  label,
+  height
 }) => {
   const translate = `translate(${220 + x}, ${y})`; // here
 
   return (
     <g transform={translate}>
-      {
-        // @ts-ignore
-        <rect fill={'rgb(61,61,255)'} height={yScale(bar)} transform={`rotate(180)`} width={45} />
-      }
+      <rect
+        fill={"rgb(61,61,255)"}
+        height={height}
+        transform={`rotate(180)`}
+        width={45}
+      />
       <text transform={`translate(-25, 20)`}>{label}</text>
     </g>
   );
