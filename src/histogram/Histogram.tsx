@@ -41,10 +41,11 @@ export const Histogram: React.FC<IHistogramProps> = ({
 
   return (
     <g>
-      <g ref={xAxisRef} transform={`translate(150, 585)`} />
+      <g ref={xAxisRef} transform={`translate(150, ${height + 100})`} />
       <g ref={yAxisRef} transform={`translate(150, 100)`} />
       {bars.map((bar, index) => (
         <HistogramBar
+            y={height + 100}
           x={axisMargin * index}
           key={index}
           bar={bar}
