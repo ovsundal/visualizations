@@ -1,47 +1,29 @@
 import * as React from "react";
-import { useEffect, useMemo, useRef } from "react";
+import { RefObject, useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
 import { HistogramBar } from "./HistogramBar";
 
 interface IHistogramProps {
   bins: number;
+  data: any[];
+  axisMargin?: number; // horizontal spacing between bars
 }
 
-const testData = [
-  {
-    name: "A",
-    value: 1
-  },
-  {
-    name: "B",
-    value: 5
-  },
-  {
-    name: "C",
-    value: 2
-  },
-  {
-    name: "D",
-    value: 4
-  },
-  {
-    name: "E",
-    value: 7
-  }
-];
-
-export const Histogram: React.FC<IHistogramProps> = ({ bins }) => {
+export const Histogram: React.FC<IHistogramProps> = ({
+  bins,
+  data,
+  axisMargin = 75
+}) => {
+  // mutable refs to hook the axis on
   const xAxisRef = useRef(null);
   const yAxisRef = useRef(null);
 
-  const bars = d3
-    .histogram()
-    .thresholds(bins)
-    .value(d => d)(testData.map(item => item.value));
-
-  const xAxis = useGetXAxisScale(bars);
+  const bars = useGetHistogramBars(bins, data);
+  const counts = bars.map(d => d.length);
+  const xAxis = useGetXAxisScale(counts, axisMargin);
   const yAxis = useGetYAxisScale(bars);
 
+  // attach axis to refs
   useEffect(() => {
     const yAxisConfig = d3.axisLeft(yAxis).ticks(8);
     const xAxisConfig = d3
@@ -53,23 +35,17 @@ export const Histogram: React.FC<IHistogramProps> = ({ bins }) => {
     d3.select(xAxisRef.current).call(xAxisConfig);
     // @ts-ignore
     d3.select(yAxisRef.current).call(yAxisConfig);
-  }, []);
-
-  const val = testData.map(item => item.value);
-  const axisMargin = 83;
-  console.log(bars);
+  }, [xAxis, yAxis]);
 
   return (
     <g>
-      {/*<g ref={xAxisRef} transform={`translate(150, 400)`} />*/}
+      <g ref={xAxisRef} transform={`translate(150, 585)`} />
       <g ref={yAxisRef} transform={`translate(150, 100)`} />
       {bars.map((bar, index) => (
         <HistogramBar
           x={axisMargin * index}
           key={index}
           bar={bar}
-          bins={bins}
-          data={testData}
           yScale={yAxis}
         />
       ))}
@@ -77,45 +53,40 @@ export const Histogram: React.FC<IHistogramProps> = ({ bins }) => {
   );
 };
 
-function useGetXAxisScale(bars: d3.Bin<number, number>[]) {
-  const width = 600;
-  const axisMargin = 83;
-
-  const counts = bars.map(d => d.length);
-
-  const xAxis = useMemo(() => {
-    const xAxisScale = d3
-      .scaleLinear()
-
-      // @ts-ignore
-      .domain([d3.min(counts), d3.max(counts)])
-      .range([0, width - axisMargin]);
-
-    return xAxisScale;
-  }, []);
-
-  return xAxis;
+/**
+ * Groups datapoints into bars with equal widths
+ * @param bins
+ * @param testData
+ */
+function useGetHistogramBars(bins: number, testData: any[]) {
+  return useMemo(
+    () =>
+      d3
+        .histogram()
+        .thresholds(bins)
+        .value(d => d)(testData.map(item => item.value)),
+    [bins, testData]
+  );
 }
-function useGetYAxisScale(bars: d3.Bin<number, number>[]) {
-  const y = 10;
-  const height = 500;
-  const bottomMargin = 5;
 
-  const yAxis = useMemo(() => {
-    const yAxisScale = d3
+function useGetXAxisScale(counts: number[], axisMargin: number) {
+  const axisWidth = counts.length * 80;
+
+  return useMemo(() => {
+    return d3
       .scaleLinear()
-      // .domain([8, 0])
-      // @ts-ignore
-      .domain([0, d3.max(bars, d => d.x1)])
-      // .range([0, 300]);
-      .range([height - y - bottomMargin, 0]);
+      .domain([d3.min(counts) || 0, d3.max(counts) || 100])
+      .range([0, axisWidth - axisMargin]);
+  }, [counts, axisMargin, axisWidth]);
+}
 
-    return yAxisScale;
+function useGetYAxisScale(bars: d3.Bin<number, number>[]) {
+  const height = 485;
 
-    // const yAxisConfig = d3.axisLeft(yAxisScale).ticks(8);
-    //
-    // return yAxisConfig;
-  }, []);
-
-  return yAxis;
+  return useMemo(() => {
+    return d3
+      .scaleLinear()
+      .domain([0, d3.max(bars, d => d.x1) || 0])
+      .range([height, 0]);
+  }, [bars]);
 }
