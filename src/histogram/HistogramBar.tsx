@@ -1,8 +1,7 @@
 import * as React from "react";
-import * as d3 from "d3";
+import styled from "styled-components";
 
 interface IHistogramBarProps {
-  bar: d3.Bin<number, number>;
   height: number;
   x: number;
   y: number;
@@ -10,7 +9,6 @@ interface IHistogramBarProps {
 }
 
 export const HistogramBar: React.FC<IHistogramBarProps> = ({
-  bar,
   x,
   y,
   label,
@@ -20,13 +18,16 @@ export const HistogramBar: React.FC<IHistogramBarProps> = ({
 
   return (
     <g transform={translate}>
-      <rect
-        fill={"steelblue"}
-        height={height}
-        transform={`rotate(180)`}
-        width={45}
-      />
+      <BarElement height={height} transform={`rotate(180)`} width={45} />
       <text transform={`translate(-25, 20)`}>{label}</text>
     </g>
   );
 };
+
+const BarElement = styled.rect`
+  fill: steelblue;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
