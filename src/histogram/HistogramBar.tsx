@@ -1,7 +1,5 @@
 import * as React from "react";
-import { useMemo } from "react";
 import * as d3 from "d3";
-import styled from "styled-components";
 
 interface IHistogramBarProps {
   bar: d3.Bin<number, number>;

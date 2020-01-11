@@ -16,23 +16,23 @@ const App: React.FC = () => {
 const testData = [
     {
         label: "A",
-        value: 1
+        number: 1
     },
     {
         label: "B",
-        value: 5
+        number: 5
     },
     {
         label: "C",
-        value: 2
+        number: 2
     },
     {
         label: "D",
-        value: 4
+        number: 4
     },
     {
         label: "E",
-        value: 7
+        number: 7
     }
 ];
 

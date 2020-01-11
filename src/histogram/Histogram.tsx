@@ -21,10 +21,12 @@ export const Histogram: React.FC<IHistogramProps> = ({
   const yAxisRef = useRef(null);
 
   const bars = useGetHistogramBars(bins, data);
-  const labels = data.map(item => item.label);
+  const filteredBars = bars.filter((item) => item.length > 0);
+
   const counts = bars.map(d => d.length);
+
   const xAxis = useGetXAxisScale(counts, axisMargin);
-  const yAxis = useGetYAxisScale(bars, height);
+  const yAxis = useGetYAxisScale(filteredBars, height);
 
   // attach axis to refs
   useEffect(() => {
@@ -50,10 +52,14 @@ export const Histogram: React.FC<IHistogramProps> = ({
       {bars
         .filter(item => item[0] != null)
         .map((bar, index) => {
+
           return (
             <HistogramBar
-              height={yAxis(bar[0])}
-              label={labels[index]}
+
+          // @ts-ignore
+              height={yAxis(bar[0].number)}
+          // @ts-ignore
+              label={bar[0].label}
               y={height + 100}
               x={axisMargin * index}
               key={index}
@@ -76,13 +82,16 @@ function useGetHistogramBars(bins: number, testData: any[]) {
       d3
         .histogram()
         .thresholds(bins)
-        .value(d => d)(testData.map(item => item.value)),
+
+  // @ts-ignore
+        .value(d => d.number)(testData.map(item => item)),
     [bins, testData]
   );
 }
 
 function useGetXAxisScale(counts: number[], axisMargin: number) {
   const axisWidth = counts.length * 80;
+
 
   return useMemo(() => {
     return d3
@@ -94,12 +103,15 @@ function useGetXAxisScale(counts: number[], axisMargin: number) {
 
 function useGetYAxisScale(bars: d3.Bin<number, number>[], height: number) {
   console.log(bars);
-  console.log(d3.max(bars, d => d[0]));
+  const cleanedBars =
+  // @ts-ignore
+  console.log(d3.max(bars, d => d[0].number));
 
   return useMemo(() => {
     return d3
       .scaleLinear()
-      .domain([0, d3.max(bars, d => d[0]) || 0])
+    // @ts-ignore
+      .domain([0, d3.max(bars, d => d[0].number) || 0])
       .range([0, height]);
   }, [bars]);
 }
