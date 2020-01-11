@@ -21,7 +21,7 @@ export const HistogramBar: React.FC<IHistogramBarProps> = ({
   return (
     <g transform={translate}>
       <rect
-        fill={"rgb(61,61,255)"}
+        fill={"steelblue"}
         height={height}
         transform={`rotate(180)`}
         width={45}

@@ -42,9 +42,6 @@ export const Histogram: React.FC<IHistogramProps> = ({
     d3.select(yAxisRef.current).call(yAxisConfig);
   }, [xAxis, yAxis]);
 
-  // TODO: labels ikke påført korrekt bar
-  // TODO: y-skala gal vei
-
   return (
     <g>
       <g ref={xAxisRef} transform={`translate(150, ${height + 100})`} />
@@ -55,9 +52,8 @@ export const Histogram: React.FC<IHistogramProps> = ({
 
           return (
             <HistogramBar
-
           // @ts-ignore
-              height={yAxis(bar[0].number)}
+              height={yAxis(0) - yAxis(bar[0].number)}
           // @ts-ignore
               label={bar[0].label}
               y={height + 100}
@@ -82,7 +78,6 @@ function useGetHistogramBars(bins: number, testData: any[]) {
       d3
         .histogram()
         .thresholds(bins)
-
   // @ts-ignore
         .value(d => d.number)(testData.map(item => item)),
     [bins, testData]
@@ -102,16 +97,12 @@ function useGetXAxisScale(counts: number[], axisMargin: number) {
 }
 
 function useGetYAxisScale(bars: d3.Bin<number, number>[], height: number) {
-  console.log(bars);
-  const cleanedBars =
-  // @ts-ignore
-  console.log(d3.max(bars, d => d[0].number));
 
   return useMemo(() => {
     return d3
       .scaleLinear()
     // @ts-ignore
-      .domain([0, d3.max(bars, d => d[0].number) || 0])
+      .domain([d3.max(bars, d => d[0].number) || 0, 0])
       .range([0, height]);
   }, [bars]);
 }
