@@ -1,14 +1,16 @@
 import React from "react";
 import { Histogram } from "./histogram/Histogram";
+import {EarthQuakeMap} from "./earthquake map/EarthquakeMap";
 
 const App: React.FC = () => {
   return (
     <svg width={"2000"} height={"1500"}>
-      <Histogram
-          bins={5} // amount of value ranges
-          data={testData}
-          height={400}
-      />
+        <EarthQuakeMap />
+      {/*<Histogram*/}
+      {/*    bins={5} // amount of value ranges*/}
+      {/*    data={testData}*/}
+      {/*    height={400}*/}
+      {/*/>*/}
     </svg>
   );
 };
