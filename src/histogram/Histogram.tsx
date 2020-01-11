@@ -59,7 +59,6 @@ export const Histogram: React.FC<IHistogramProps> = ({
               y={height + 100}
               x={axisMargin * index}
               key={index}
-              bar={bar}
             />
           );
         })}
